@@ -1,9 +1,10 @@
-.PHONY: build push
+.PHONY: build push run
 
 build:
-	docker buildx bake
+    docker buildx bake
 
 push:
-	docker buildx bake --push
+    docker buildx bake --push
 
-default: build
+run:
+    docker run --rm -it belua/golang:latest
