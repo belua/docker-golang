@@ -31,6 +31,7 @@ COPY --from=builder ${GOPATH:-/go}/bin/* ${GOPATH:-/go}/bin/
 RUN apt-get update \
   && apt-get install -y netcat-openbsd \
   && apt-get install -y neovim \
+  && apt-get install -y less \
   && apt-get install -y zsh git
 
 # Set up Oh My Zsh and Zsh
