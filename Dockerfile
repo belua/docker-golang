@@ -51,6 +51,8 @@ RUN apt-get update && apt-get install -y \
 RUN git clone --depth=1 https://github.com/ohmyzsh/ohmyzsh.git ~/.oh-my-zsh
 ENV SHELL /bin/zsh
 RUN chsh -s /bin/zsh
+RUN sed -i 's/plugins=(git)/plugins=(aws azure debian docker docker-compose gcloud gh git git-escape-magic git-extras git-lfs gnu-utils golang kubectl mongocli postgres redis-cli terraform vscode)/g' ~/.oh-my-zsh/templates/zshrc.zsh-template
+
 RUN cp ~/.oh-my-zsh/templates/zshrc.zsh-template ~/.zshrc
 
 # Set the default entrypoint for the container
