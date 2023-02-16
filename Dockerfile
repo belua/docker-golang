@@ -31,8 +31,11 @@ RUN apt-get update \
   && apt-get install -y netcat-openbsd \
   && apt-get install -y neovim \
   && apt-get install -y less \
-  && apt-get install -y zsh git
+  && apt-get install -y zsh \
+  && apt-get install -y git \
+  && apt-get install -y iputils-ping
 
+# Install Docker
 RUN apt-get update && apt-get install -y \
     apt-transport-https \
     ca-certificates \
