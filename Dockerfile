@@ -36,6 +36,7 @@ RUN apt-get update && apt-get upgrade -y && \
     apt-get install -y gnupg && \
     apt-get install -y iputils-ping && \
     apt-get install -y less && \
+    apt-get install -y make && \
     apt-get install -y lsb-release && \
     apt-get install -y neovim && \
     apt-get install -y netcat-openbsd && \
@@ -55,7 +56,7 @@ RUN apt-get update && apt-get upgrade -y && \
 RUN git clone --depth=1 https://github.com/ohmyzsh/ohmyzsh.git ~/.oh-my-zsh && \
     chsh -s /bin/zsh && \
     sed -i \
-      's/plugins=(git)/plugins=(aws azure debian docker docker-compose gcloud gh git git-escape-magic git-extras git-lfs gnu-utils golang kubectl mongocli postgres redis-cli terraform vscode)/g' \
+      's/plugins=(git)/plugins=(docker gcloud gh git gnu-utils golang vscode)/g' \
       ~/.oh-my-zsh/templates/zshrc.zsh-template && \
     cp ~/.oh-my-zsh/templates/zshrc.zsh-template ~/.zshrc && \
     echo "export EDITOR=/usr/bin/nvim" >> ~/.zshrc
