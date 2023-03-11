@@ -9,17 +9,19 @@ RUN echo "Building on $BUILDPLATFORM for $TARGETPLATFORM!"
 WORKDIR ${GOPATH:-/go}/src
 
 # Install the Go tools in the builder stage
-RUN go install github.com/cweill/gotests/...@latest && \
-    go install github.com/fatih/gomodifytags@latest && \
+# RUN go install github.com/cweill/gotests/...@latest && \
+RUN go install github.com/fatih/gomodifytags@latest && \
     go install github.com/go-delve/delve/cmd/dlv@latest && \
     go install github.com/goreleaser/goreleaser@latest && \
     go install github.com/haya14busa/goplay/cmd/goplay@latest && \
     go install github.com/josharian/impl@latest && \
     go install github.com/kisielk/errcheck@latest && \
+    go install github.com/ramya-rao-a/go-outline@latest && \
     go install github.com/spf13/cobra-cli@latest && \
     go install golang.org/x/tools/gopls@latest && \
     go install go.temporal.io/sdk/contrib/tools/workflowcheck@latest && \
-    go install honnef.co/go/tools/cmd/staticcheck@latest
+    go install honnef.co/go/tools/cmd/staticcheck@latest && \
+    go install github.com/bufbuild/buf/cmd/buf@latest
  
 # Use the base Go image as the final image \
 FROM belua/golang-builder:${GO_VERSION}
