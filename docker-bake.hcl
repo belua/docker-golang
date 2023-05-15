@@ -7,7 +7,7 @@ variable "DOCKER_REGISTRY" {
 }
 
 variable "GO_VERSION" {
-  default = "1.20.1"
+  default = "1.20.4"
 }
 
 target "default" {
